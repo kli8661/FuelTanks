@@ -1,2 +1,26 @@
+import java.util.List;
+
 public class FuelDepot {
+
+    private FuelRobot filler;
+
+    private List<FuelTank> tanks;
+
+    public int nextTankToFill(int threshold)
+    {
+        int minTankIndex = this.filler.getCurrentIndex();
+        for(int i = 0; i < this.tanks.size(); i++)
+        {
+            if(this.tanks.get(i).getFuelLevel() <= threshold && this.tanks.get(i).getFuelLevel() < this.tanks.get(minTankIndex).getFuelLevel())
+            {
+                minTankIndex = i;
+            }
+        }
+        return minTankIndex;
+    }
+
+    public void moveToLocation(int locIndex)
+    {
+
+    }
 }
