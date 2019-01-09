@@ -21,6 +21,21 @@ public class FuelDepot {
 
     public void moveToLocation(int locIndex)
     {
-
+        if(this.filler.getCurrentIndex() > locIndex)
+        {
+            if(this.filler.isFacingRight())
+            {
+                this.filler.changeDirection();
+            }
+            this.filler.moveForward(this.filler.getCurrentIndex() - locIndex);
+        }
+        if(this.filler.getCurrentIndex() < locIndex)
+        {
+            if(!this.filler.isFacingRight())
+            {
+                this.filler.changeDirection();
+            }
+            this.filler.moveForward(locIndex - this.filler.getCurrentIndex());
+        }
     }
 }
